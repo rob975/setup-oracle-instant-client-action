@@ -22,7 +22,7 @@ Supports Linux, macOS, and Windows runners.
 
 ```yml
 - name: Set up Oracle Instant Client
-  uses: iamazeem/setup-oracle-instant-client-action@v1
+  uses: iamazeem/setup-oracle-instant-client-action@v2
 
 - name: Check sqlplus version
   run: sqlplus -V
