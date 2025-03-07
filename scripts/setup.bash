@@ -39,7 +39,7 @@ if [[ $RUNNER_OS == "Linux" ]]; then
 
     for URL in "${URLS[@]}"; do
         echo "[INF] Downloading... [$URL]"
-        wget --quiet "$URL"
+        curl -sSfLO "$URL"
     done
 
     for ZIP in instantclient-*.zip; do
@@ -75,7 +75,7 @@ elif [[ $RUNNER_OS == "macOS" ]]; then
 
     for URL in "${URLS[@]}"; do
         echo "[INF] Downloading... [$URL]"
-        wget --quiet "$URL"
+        curl -sSfLO "$URL"
     done
 
     for DMG in instantclient-*.dmg; do
@@ -107,17 +107,11 @@ elif [[ $RUNNER_OS == "Windows" ]]; then
         exit 1
     fi
 
-    echo "[INF] Installing wget..."
-    if ! choco install wget --no-progress >/dev/null; then
-        echo "[ERR] Failed to install wget!"
-        exit 1
-    fi
-
     cd "$RUNNER_TEMP"
 
     for URL in "${URLS[@]}"; do
         echo "[INF] Downloading... [$URL]"
-        wget --quiet "$URL"
+        curl -sSfLO "$URL"
     done
 
     for ZIP in instantclient-*.zip; do
